@@ -12,6 +12,6 @@ public class AnimationStrings : MonoBehaviour
     internal static string CheckAttack= "CheckAttack";
     internal static string SlashPerTime= "SlashPerTime";
     internal static string isAlive = "isAlive";
-    
+    internal static string Fire = "Fire";
 
 }

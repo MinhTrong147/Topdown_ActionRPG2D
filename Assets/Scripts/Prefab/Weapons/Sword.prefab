@@ -101,11 +101,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1ef6e2d1331834691c53e0dddceacb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponInfo: {fileID: 11400000, guid: 1f9a3009a51910b4da1a769725e9c803, type: 2}
   animSlashPrefab: {fileID: 2283475870998480236, guid: 63d4cbc0c259d3e4da776bfacfd36812, type: 3}
-  SlashAnimDirce: {fileID: 0}
   weaponCollider: {fileID: 2150772911617765200}
   swordAttackCD: 0.5
-  StopAttackAimCD: 5
+  StopAttackAimCD: 1
 --- !u!95 &5703115571091072706
 Animator:
   serializedVersion: 5
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 2284834323280368049}
   m_Layer: 0
   m_Name: WeaponColider
-  m_TagString: Weapons
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,4 +393,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f288a6a017db38b4183e6b47f60ce4e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 1

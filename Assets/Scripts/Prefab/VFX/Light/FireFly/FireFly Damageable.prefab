@@ -4953,3 +4953,7 @@ MonoBehaviour:
   destroyVFX: {fileID: 6288154302092200420, guid: 0d9a94ddc5381f84a9adf2391e43e0f3, type: 3}
   Touching: 1
   currentInTouching: 0
+  weaponTags:
+  - Sword
+  - Arrow
+  - Fire

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2230997680701233005}
   - component: {fileID: 8240474985771211667}
   - component: {fileID: 4381212655895634931}
+  - component: {fileID: 4892370125413929902}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -213,6 +214,20 @@ MonoBehaviour:
   destroyVFX: {fileID: 3537965464615940297, guid: 980a2be3cc4887b488d5b287bf9b943e, type: 3}
   animTransformVFX: {fileID: 646887164864388069}
   colli2D: {fileID: 6693942533375731914}
+  weaponTags:
+  - Sword
+--- !u!114 &4892370125413929902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1788266108078593989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c79dc370194124fb2dc133547bbf1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3795889131863999951
 GameObject:
   m_ObjectHideFlags: 0

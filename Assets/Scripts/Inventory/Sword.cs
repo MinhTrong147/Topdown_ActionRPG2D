@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour, IWeapon
 {
-
+    [SerializeField] private WeaponInfo weaponInfo;
     [SerializeField] private GameObject animSlashPrefab;
     [SerializeField] private Transform weaponCollider;
     [SerializeField] private float swordAttackCD = .35f;
@@ -15,33 +15,50 @@ public class Sword : MonoBehaviour, IWeapon
     private Transform SlashAnimDirce;
     private GameObject animSlash;
     private Animator animator;
-
+    private ActiveWeapon activeWeapon;
     private bool isAttackAnimRun = false;
+    
 
-    private void Awake() {
-        animator = GetComponent<Animator>();        
+    public void Awake() {
+        animator = GetComponent<Animator>();
+        activeWeapon = GetComponentInParent<ActiveWeapon>();
+        
     }
-    private void Start() {
-         SlashAnimDirce = CharacterControl.Instance.GetTransformSlashAnimDirce();
+    public void Start() {
+        SlashAnimDirce = CharacterControl.Instance.GetTransformSlashAnimDirce();
     }
-    private void FixedUpdate() {
+    public void Update() {
        mouseFollowWithOffset();
     }
 
 
     public void Attack(){
-        // ActiveWeapon.Instance.ToggleIsAttacking(true);
+
+        AttackDirection();
         animator.SetTrigger(AnimationStrings.Attack); 
         weaponCollider.gameObject.SetActive(true);  
         StartCoroutine(DecreaseSlashPerTime()); 
         animSlash=Instantiate(animSlashPrefab, SlashAnimDirce.position, quaternion.identity);
         animSlash.transform.parent = this.transform.parent;
-        StartCoroutine(AttackCDRoutine());        
-    }       
+        StartCoroutine(AttackCDRoutine());      
+    }
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
+    }
+    private void AttackDirection()
+    {
+        Vector3 mousePosition = Input.mousePosition;
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
+        Vector3 direction = mousePosition - playerScreenPoint;
+        direction.Normalize();
+        animator.SetFloat(AnimationStrings.Horizontal, direction.x);
+        animator.SetFloat(AnimationStrings.Vertical, direction.y);
+    }
     private IEnumerator AttackCDRoutine(){
         // isAttacking = true;
         yield return new WaitForSeconds(swordAttackCD);
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
+
     }
     public void FinishAttack(){
         if(!isAttackAnimRun){
@@ -64,12 +81,19 @@ public class Sword : MonoBehaviour, IWeapon
         animator.SetFloat(AnimationStrings.SlashPerTime, 0f);
     }
     private void mouseFollowWithOffset(){
-    Vector3 mousePosition = Input.mousePosition;
-    Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
-    Vector3 direction = mousePosition - playerScreenPoint;
-    direction.Normalize();
-    animator.SetFloat(AnimationStrings.Horizontal, direction.x);
-    animator.SetFloat(AnimationStrings.Vertical, direction.y);
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(CharacterControl.Instance.transform.position);
+        
+        if (mousePos.x < playerScreenPoint.x)
+        {
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        }
+        else
+        {
+            ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+            
+        }
     } 
     //     public void SlashForwardState2() {
     //     animator.gameObject.transform.rotation = Quaternion.Euler(0, 180, 90);

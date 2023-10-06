@@ -124,6 +124,10 @@ MonoBehaviour:
   destroyVFX: {fileID: 8261663375476024963, guid: 9a3283e2b240a8e468669c14c962af19, type: 3}
   Touching: 1
   currentInTouching: 0
+  weaponTags:
+  - Sword
+  - Arrow
+  - Fire
 --- !u!70 &4521841544624864342
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

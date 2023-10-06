@@ -4919,6 +4919,10 @@ MonoBehaviour:
   destroyVFX: {fileID: 6288154302092200420, guid: 0d9a94ddc5381f84a9adf2391e43e0f3, type: 3}
   Touching: 3
   currentInTouching: 0
+  weaponTags:
+  - Sword
+  - Arrow
+  - Fire
 --- !u!58 &5385108076527878496
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5005,6 +5009,14 @@ PrefabInstance:
     - target: {fileID: 1788266108078593989, guid: b2288714fa56b8c47a71da827d7840cd, type: 3}
       propertyPath: m_Name
       value: Tree FireFly
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381212655895634931, guid: b2288714fa56b8c47a71da827d7840cd, type: 3}
+      propertyPath: weaponTags.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381212655895634931, guid: b2288714fa56b8c47a71da827d7840cd, type: 3}
+      propertyPath: weaponTags.Array.data[0]
+      value: Sword
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

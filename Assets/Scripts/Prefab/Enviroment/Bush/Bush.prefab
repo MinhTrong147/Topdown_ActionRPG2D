@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7591009558157160402}
   - component: {fileID: 2501254334489497623}
   - component: {fileID: 586678567745900581}
+  - component: {fileID: 2285047225690892341}
   m_Layer: 0
   m_Name: Bush
   m_TagString: Untagged
@@ -158,3 +159,19 @@ MonoBehaviour:
   destroyVFX: {fileID: 8817174497255988538, guid: 5b6d3713046e74c45b167b2ecfa1151e, type: 3}
   Touching: 2
   currentInTouching: 0
+  weaponTags:
+  - Sword
+  - Arrow
+  - Fire
+--- !u!114 &2285047225690892341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282951459087804715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c79dc370194124fb2dc133547bbf1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
