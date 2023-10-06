@@ -1,0 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
+using Cinemachine;
+using UnityEngine;
+
+public class CameraController : Singleton<CameraController>
+
+{
+    private CinemachineVirtualCamera cinemachineVirtualCamera;
+
+    public void SetPlayerCameraFollow(){
+        cinemachineVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+        cinemachineVirtualCamera.Follow = CharacterControl.Instance.transform;
+    }
+
+
+}    
+
